@@ -2,7 +2,7 @@
 
 namespace AdventOfCode23.DayOne;
 
-public static class DayOne
+public static class DayOneFirstAttempt
 {
     private static readonly string _fileName = @"Input\Day1Input.txt";
 
