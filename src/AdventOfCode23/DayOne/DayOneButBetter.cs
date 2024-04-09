@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using AdventOfCode23.Utils;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode23.DayOne;
 
@@ -9,13 +10,13 @@ public static class DayOneButBetter
     public static int PartOne()
     {
         string pattern = @"(?=([1-9]))";
-        List<string> calibrationValues = ReadInputFile();
+        List<string> calibrationValues = FileManagement.ReadInputFile(_fileName);
         return TransformCalibrationValues(calibrationValues, pattern).Sum();
     }
 
     public static int PartTwo()
     {
-        List<string> calibrationValues = ReadInputFile();
+        List<string> calibrationValues = FileManagement.ReadInputFile(_fileName);
         string pattern = "(?=([1-9]|one|two|three|four|five|six|seven|eight|nine))";
         return TransformCalibrationValues(calibrationValues, pattern).Sum();
     }
@@ -54,12 +55,5 @@ public static class DayOneButBetter
         _ => throw new Exception("Not a Number")
     };
 
-    private static List<string> ReadInputFile()
-    {
-        string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        string combinedFileName = Path.Combine(currentDirectory, _fileName);
-        string filePath = Path.GetFullPath(combinedFileName);
-
-        return [.. File.ReadAllLines(filePath)];
-    }
+    
 }

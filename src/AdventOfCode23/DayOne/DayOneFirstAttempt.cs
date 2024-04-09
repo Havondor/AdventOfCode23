@@ -8,12 +8,12 @@ public static class DayOneFirstAttempt
 
     public static int PartOne()
     {
-        return ReduceListToDigits([.. ReadInputFile().Values]).Sum();
+        return ReduceListToDigits([.. ConvertInputToDict().Values]).Sum();
     }
 
     public static int PartTwo()
     {
-        Dictionary<int, string> calibrationValues = ReadInputFile();
+        Dictionary<int, string> calibrationValues = ConvertInputToDict();
 
         SwapAlphaToDigit<DigitNameCombos>(calibrationValues);
         SwapAlphaToDigit<DigitName>(calibrationValues);
@@ -43,14 +43,11 @@ public static class DayOneFirstAttempt
         }
     }
 
-    private static Dictionary<int, string> ReadInputFile()
+    private static Dictionary<int, string> ConvertInputToDict()
     {
-        string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        string combinedFileName = Path.Combine(currentDirectory, _fileName);
-        string filePath = Path.GetFullPath(combinedFileName);
-
-        return File.ReadAllLines(filePath)
+        return File.ReadAllLines(_fileName)
                    .Select((v, k) => new { Key = k, Value = v })
                    .ToDictionary(o => o.Key, o => o.Value);
     }
+
 }
