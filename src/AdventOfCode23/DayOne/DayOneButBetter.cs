@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 
-
 namespace AdventOfCode23.DayOne;
 
 public static class DayOneButBetter
@@ -29,7 +28,7 @@ public static class DayOneButBetter
         foreach (var calibrationValue in calibrationValues)
         {
             List<int> values = [];
-            foreach (Match token in regex.Matches(calibrationValue))
+            foreach (Match token in regex.Matches(calibrationValue).Cast<Match>())
             {
                 values.Add(EvaluateToken(token.Groups[1].Value));
             }
