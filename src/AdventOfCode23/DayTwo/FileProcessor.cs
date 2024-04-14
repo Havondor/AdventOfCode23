@@ -5,11 +5,9 @@ namespace AdventOfCode23.DayTwo;
 
 public static class FileProcessor
 {
-    private const string _fileName = @"Input\Day2Input.txt";
-
-    public static List<Game> GetGames()
+    public static List<Game> GetGames(string FileName)
     {
-        List<string> gameStrings = FileManagement.ReadInputFile(_fileName);
+        List<string> gameStrings = FileManagement.ConvertInputFileToStringList(FileName);
         List<Game> games = [];
 
         foreach (string gameString in gameStrings)

@@ -4,9 +4,11 @@ namespace AdventOfCode23.DayTwo;
 
 public static class DayTwo
 {
+    private const string _fileName = @"Input\Day2Input.txt";
+
     public static int PartOne(int maxBlue, int maxGreen, int maxRed)
     {
-        var games = FileProcessor.GetGames();
+        var games = FileProcessor.GetGames(_fileName);
 
         EvaluateGame evaluateGame = new(games);
 
@@ -15,7 +17,7 @@ public static class DayTwo
 
     public static int PartTwo()
     {
-        var games = FileProcessor.GetGames();
+        var games = FileProcessor.GetGames(_fileName);
 
         EvaluateGame evaluateGame = new(games);
 

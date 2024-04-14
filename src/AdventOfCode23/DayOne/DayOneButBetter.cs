@@ -9,14 +9,14 @@ public static class DayOneButBetter
 
     public static int PartOne()
     {
-        string pattern = @"(?=([1-9]))";
-        List<string> calibrationValues = FileManagement.ReadInputFile(_fileName);
+        string pattern = @"(?=-)";
+        List<string> calibrationValues = FileManagement.ConvertInputFileToStringList(_fileName);
         return TransformCalibrationValues(calibrationValues, pattern).Sum();
     }
 
     public static int PartTwo()
     {
-        List<string> calibrationValues = FileManagement.ReadInputFile(_fileName);
+        List<string> calibrationValues = FileManagement.ConvertInputFileToStringList(_fileName);
         string pattern = "(?=([1-9]|one|two|three|four|five|six|seven|eight|nine))";
         return TransformCalibrationValues(calibrationValues, pattern).Sum();
     }
